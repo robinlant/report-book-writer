@@ -1,0 +1,19 @@
+FROM python:3.12
+
+WORKDIR /app
+
+COPY requirements* .
+
+RUN python -m pip install -r requirements-dev.txt
+
+COPY src src
+
+RUN useradd -m container
+
+RUN chown -R container:container /app
+
+USER container
+
+WORKDIR /app
+
+CMD ["pytest"]
