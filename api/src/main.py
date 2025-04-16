@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from src.api import WriteReportRequestDto, WriteReportResponseDto
-from src.infrastructure import GrokAiWriter, ReportGenerationError
+from api.src.api import WriteReportRequestDto, WriteReportResponseDto
+from api.src.infrastructure import GrokAiWriter, ReportGenerationError
 
 app = FastAPI()
 

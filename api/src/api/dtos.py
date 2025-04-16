@@ -1,6 +1,6 @@
 from pydantic import constr, conint, BaseModel
 
-from src.infrastructure import ReportEntity, UsageEntity
+from api.src.infrastructure import ReportEntity, UsageEntity
 
 class WriteReportRequestDto(BaseModel):
     api_token: constr(pattern=r"^xai-[\s\S]*$")
