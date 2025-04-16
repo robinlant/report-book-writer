@@ -3,12 +3,14 @@ run-name: Running tests by @${{ github.actor }}
 
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
       - 'feature*'
       - '*feature'
-
+    paths:
+      - 'api/**'
 
 jobs:
   run-unittests:
