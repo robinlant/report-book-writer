@@ -9,8 +9,6 @@ on:
       - main
       - 'feature*'
       - '*feature'
-    paths:
-      - 'api/**'
 
 jobs:
   run-unittests:
