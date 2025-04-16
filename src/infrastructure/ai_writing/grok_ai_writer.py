@@ -16,7 +16,7 @@ GROK_RATE_LIMIT_ERR = "Too many requests. Please try again later"
 WRONG_API_KEY_ERR = "Not valid Grok API key. Please check your key."
 
 class GrokAiWriter(BaseAiReportWriter):
-    def __init__(self, api_key: str, randomness: int = 50, max_line_len: int = 100):
+    def __init__(self, api_key: str, randomness: int = 65, max_line_len: int = 80):
         if not api_key.startswith("xai-"):
             raise ValueError('Grok api key has to start with "xai-"')
         if randomness < 0 or randomness > 100:
