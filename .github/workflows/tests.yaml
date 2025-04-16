@@ -8,8 +8,6 @@ on:
       - main
       - 'feature*'
       - '*feature'
-    paths:
-      - api
 
 
 jobs:
