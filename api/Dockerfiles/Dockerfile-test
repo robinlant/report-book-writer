@@ -1,6 +1,6 @@
 FROM python:3.12
 
-WORKDIR /app
+WORKDIR /api
 
 COPY api/requirements* .
 
@@ -10,10 +10,10 @@ COPY api .
 
 RUN useradd -m container
 
-RUN chown -R container:container /app
+RUN chown -R container:container /api
 
 USER container
 
-WORKDIR /app
+WORKDIR /api
 
 CMD ["pytest"]
