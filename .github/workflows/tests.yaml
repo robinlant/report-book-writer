@@ -3,12 +3,12 @@ run-name: Running tests by @${{ github.actor }}
 
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
       - 'feature*'
       - '*feature'
-
 
 jobs:
   run-unittests:
@@ -22,7 +22,7 @@ jobs:
         run: |
           docker build \
           -t ${{ github.repository }}-api \
-          -f Dockerfiles/Dockerfile-test \
+          -f api/Dockerfiles/Dockerfile-test \
           .
       - name: Run ${{ github.repository }}-api
         run: |

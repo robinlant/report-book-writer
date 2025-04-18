@@ -4,7 +4,7 @@ from typing import Any
 import pytest
 import requests
 
-from src.infrastructure import GrokAiWriter, ReportEntity
+from api.src.infrastructure import GrokAiWriter, ReportEntity
 
 
 class MockResponse:

@@ -1,19 +1,19 @@
 FROM python:3.12
 
-WORKDIR /app
+WORKDIR /api
 
-COPY requirements* .
+COPY api/requirements* .
 
 RUN python -m pip install -r requirements-dev.txt
 
-COPY src src
+COPY api .
 
 RUN useradd -m container
 
-RUN chown -R container:container /app
+RUN chown -R container:container /api
 
 USER container
 
-WORKDIR /app
+WORKDIR /api
 
 CMD ["pytest"]
