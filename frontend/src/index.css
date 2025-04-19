@@ -24,6 +24,10 @@
 
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html, #root, body {
   height: 100%;
 }
