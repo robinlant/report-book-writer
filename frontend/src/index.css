@@ -1,0 +1,33 @@
+:root {
+  /* colors */
+  --primary-color: #ff0000;
+  --primary-light: #ff4d4d;
+  --primary-dark: #cc0000;
+  --secondary-color: #990000;
+  --secondary-light: #cc3333;
+  --white: #ffffff;
+  --black: #000000;
+  --gray: #666666;
+  --light-gray: #e1c9c9;
+  --success: #28a745;
+  --error: #dc3545;
+  --warning: #ffc107;
+
+  /* layout */
+  --outer-padding: 30px;
+
+  /* font */
+  --font-size-normal: 20px;
+  --font-size-big: 24px;
+  --font-size-title: 28px;
+  --font-size-small: 18px;
+
+}
+
+html, #root, body {
+  height: 100%;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
