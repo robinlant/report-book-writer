@@ -7,15 +7,3 @@
     flex-direction: column;
     justify-content: space-around;
 }
-
-.text_node_title {
-    color: var(--black);
-    font-size: var(--font-size-big);
-    font-weight: bolder;
-}
-
-.text_node_text {
-    color: var(--black);
-    font-size: var(--font-size-normal);
-    font-weight: normal;
-}

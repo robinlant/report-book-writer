@@ -8,8 +8,8 @@ function TextNode({title, text, padding}) {
     return (
         <div className="text_node" style={{ "padding": padding }}>
             <div>
-                <h2 className="text_node_title">{title}</h2>
-                <div className="text_node_text" dangerouslySetInnerHTML={{ __html: text }}/>
+                <h2 className="title">{title}</h2>
+                <div className="text" dangerouslySetInnerHTML={{ __html: text }}/>
             </div>
         </div>
     );
