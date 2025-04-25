@@ -1,12 +1,12 @@
 .button {
-    display: inline-block;
+    display: flex;
+    width: fit-content;
     border-radius: 4px;
     padding: 8px 16px;
     border: 2px solid var(--primary-color);
     background-color: transparent;
     color: var(--black);
-    font-size: var(--font-size-normal);
-    font-weight: bolder;
+    font-size: var(--font-size-small);
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;

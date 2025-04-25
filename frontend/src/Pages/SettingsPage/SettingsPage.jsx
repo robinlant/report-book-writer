@@ -3,8 +3,9 @@ import BasePage from "../BasePage/BasePage.jsx";
 import './SettingsPage.css'
 import Button from "../../Components/Button/Button.jsx";
 import {useState} from "react";
+import {useToast} from "../../Components/ToastProvider/ToastContext.jsx";
 
-function SettingsPage({ settings, setSettings }) {
+function SettingsPage({ settings, setSettings, showToast }) {
     if (!settings) {
         settings = {
             randomness: 65,
@@ -88,7 +89,10 @@ function SettingsPage({ settings, setSettings }) {
                     <Button
                         title="Speichern"
                         maxWidth="150px"
-                        onButtonClick={() => setSettings(new_settings)}
+                        onButtonClick={() => {
+                            setSettings(new_settings);
+                            showToast("Einstellungen wurden gespeichert", "success");
+                        }}
                     />
                 </div>
             </div>
@@ -98,7 +102,8 @@ function SettingsPage({ settings, setSettings }) {
 
 SettingsPage.propTypes = {
     settings: PropTypes.object,
-    setSettings: PropTypes.func
+    setSettings: PropTypes.func,
+    showToast: PropTypes.func
 };
 
 export default SettingsPage;

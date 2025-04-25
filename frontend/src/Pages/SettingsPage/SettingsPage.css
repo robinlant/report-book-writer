@@ -26,26 +26,6 @@
     color: var(--gray);
 }
 
-.settings-block input[type="text"] {
-    padding: 0.5rem 0.75rem;
-    font-size: 1rem;
-    border: 1px solid var(--light-gray);
-    border-radius: 6px;
-    transition: border-color 0.2s ease;
-}
-
-.settings-block input[type="text"]:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-}
-
-.settings-block input[type="range"] {
-    width: 100%;
-    accent-color: var(--primary-color);
-    height: 4px;
-    margin-top: 0.5rem;
-}
-
 .toggle-button {
     background: none;
     border: none;
