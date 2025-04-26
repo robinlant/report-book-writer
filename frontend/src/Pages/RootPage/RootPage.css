@@ -1,0 +1,9 @@
+.root-page {
+    padding: var(--outer-padding);
+    display: flex;
+    flex-direction: column;
+    gap: var(--outer-padding);
+    align-items: center;
+    justify-content: start;
+    overflow-y: scroll;
+}

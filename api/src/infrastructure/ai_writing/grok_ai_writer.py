@@ -73,6 +73,7 @@ class GrokAiWriter(BaseAiReportWriter):
         try:
             response.raise_for_status()
         except requests.HTTPError as e:
+            logger.error(str(e))
             match response.status_code:
                 case 401:
                     raise ReportGenerationError(WRONG_API_KEY_ERR)
@@ -116,9 +117,10 @@ class GrokAiWriter(BaseAiReportWriter):
             'temperature': temperature,
             'messages': messages
         }
+        payload = json.dumps(payload)
 
         return requests.post(
             url=self.base_url,
             headers=self.headers,
-            data=json.dumps(payload)
+            data=payload
         )

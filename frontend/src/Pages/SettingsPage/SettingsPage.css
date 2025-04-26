@@ -1,0 +1,64 @@
+.settings-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: var(--outer-padding);
+    width: 50%;
+    margin: 0 auto;
+}
+
+.settings-block h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.settings-block div {
+    display: flex;
+    flex-direction: column;
+}
+
+.settings-block label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--gray);
+}
+
+.toggle-button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eye-toggle {
+  cursor: pointer;
+  font-size: 1.2rem;
+  user-select: none;
+}
+
+@media  (max-width: 1000px) {
+    .settings-block {
+        width: 70%;
+    }
+}
+
+@media  (max-width: 800px) {
+    .settings-block {
+        width: 80%;
+    }
+}
+
+@media  (max-width: 600px) {
+    .settings-block {
+        width: 90%;
+    }
+}
