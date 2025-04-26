@@ -4,8 +4,8 @@ import {useState} from "react";
 import Day from "../../Components/Day/Day.jsx";
 import "./RootPage.css";
 
-function RootPage({ settings }) {
-    const [weekDays, setWeekDays] = useState([ [], [], [], [], [] ])
+function RootPage({ makeApiCall }) {
+    const [weekDays, setWeekDays] = useState([ [""], [""], [""], [""], [""] ])
 
     return (
         <BasePage>
@@ -13,7 +13,9 @@ function RootPage({ settings }) {
                 {[...Array(5)].map((_, i) => (
                   <Day key={i} weekDays={weekDays} setWeekDays={setWeekDays} dayId={i} />
                 ))}
-                <div className="button">Send</div>
+                <div className="button" onClick={() => {
+                    makeApiCall(weekDays)
+                }}>Berichtsheft erstellen</div>
             </div>
         </BasePage>
     );
@@ -21,7 +23,7 @@ function RootPage({ settings }) {
 
 
 RootPage.propTypes = {
-    settings: PropTypes.object,
+    makeApiCall: PropTypes.func,
 }
 
 export default RootPage;

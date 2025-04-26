@@ -10,7 +10,8 @@ function SettingsPage({ settings, setSettings, showToast }) {
         settings = {
             randomness: 65,
             max_line_len: 80,
-            api_key: ""
+            api_key: "",
+            specialization: "",
         }
     }
 
@@ -43,6 +44,21 @@ function SettingsPage({ settings, setSettings, showToast }) {
                             }}
                         />
                     </div>
+                </div>
+
+                <div>
+                    <label>
+                        Fachrichtung
+                    </label>
+                    <input
+                        id="setting_ki_randomness"
+                        type="text"
+                        maxLength="90"
+                        defaultValue={settings.specialization}
+                        onChange={(event) => {
+                            new_settings.specialization = event.target.value;
+                        }}
+                    />
                 </div>
 
                 <div>

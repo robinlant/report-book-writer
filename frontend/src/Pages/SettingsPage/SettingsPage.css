@@ -3,7 +3,7 @@
     flex-direction: column;
     gap: 1.5rem;
     padding: var(--outer-padding);
-    max-width: 600px;
+    width: 50%;
     margin: 0 auto;
 }
 
@@ -45,3 +45,20 @@
   user-select: none;
 }
 
+@media  (max-width: 1000px) {
+    .settings-block {
+        width: 70%;
+    }
+}
+
+@media  (max-width: 800px) {
+    .settings-block {
+        width: 80%;
+    }
+}
+
+@media  (max-width: 600px) {
+    .settings-block {
+        width: 90%;
+    }
+}

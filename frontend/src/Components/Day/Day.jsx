@@ -1,5 +1,6 @@
 import "./Day.css";
 import PropTypes from "prop-types";
+import {useToast} from "../ToastProvider/ToastContext.jsx";
 
 function getDayOfWeekName(dayId) {
   switch (dayId) {
@@ -14,6 +15,7 @@ function getDayOfWeekName(dayId) {
 
 function Day({ weekDays, setWeekDays, dayId }) {
   const inputs = weekDays[dayId];
+  const showToast = useToast();
 
   const handleInputChange = (index, value) => {
     const updatedInputs = [...inputs];
@@ -32,11 +34,20 @@ function Day({ weekDays, setWeekDays, dayId }) {
   };
 
   const handleRemoveInput = (index) => {
+    if (weekDays[dayId].length === 1){
+      showToast("Sie können die letzte Eingabe nicht entfernen", "error")
+      return
+    }
     const updatedInputs = inputs.filter((_, i) => i !== index);
     const updatedWeek = [...weekDays];
     updatedWeek[dayId] = updatedInputs;
     setWeekDays(updatedWeek);
   };
+
+  const copyToCipboard = (index) => {
+    navigator.clipboard.writeText(weekDays[dayId][index]);
+    showToast("Erfolgreich in die Zwischenablage kopiert", "success");
+  }
 
   return (
     <div className="day-container">
@@ -49,7 +60,8 @@ function Day({ weekDays, setWeekDays, dayId }) {
                  value={inputValue}
                  onChange={(e) => handleInputChange(index, e.target.value)}
           />
-          <div className="button" onClick={() => handleRemoveInput(index)}>❌</div>
+          <div className="button cross" onClick={() => handleRemoveInput(index)}>X</div>
+          <div className="button cross" onClick={() => copyToCipboard(index)}>📋</div>
         </div>
       ))}
 
