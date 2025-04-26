@@ -1,9 +1,23 @@
+import json
+from urllib.request import Request
+from loguru import logger
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api.src.api import WriteReportRequestDto, WriteReportResponseDto
 from api.src.infrastructure import GrokAiWriter, ReportGenerationError
-
 app = FastAPI()
+
+@app.middleware("http")
+async def add_process_time_header(request: Request, call_next):
+    try:
+        body_json = await request.json()
+        body_json["api_token"] = "deleted"
+        logger.info(f"Request body: {body_json}")
+    except Exception:
+        logger.warning("Failed to decode request body")
+
+
+    return await call_next(request)
 
 app.add_middleware(
     CORSMiddleware,
@@ -12,6 +26,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 @app.post("/api/write")
 async def write_report(write_request_dto: WriteReportRequestDto) -> WriteReportResponseDto:
     try:
