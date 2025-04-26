@@ -4,9 +4,7 @@ import {useState} from "react";
 import Day from "../../Components/Day/Day.jsx";
 import "./RootPage.css";
 
-function RootPage({ makeApiCall }) {
-    const [weekDays, setWeekDays] = useState([ [""], [""], [""], [""], [""] ])
-
+function RootPage({ makeApiCall, weekDays, setWeekDays }) {
     return (
         <BasePage>
             <div className="root-page">

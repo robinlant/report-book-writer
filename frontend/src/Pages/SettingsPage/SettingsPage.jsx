@@ -3,7 +3,6 @@ import BasePage from "../BasePage/BasePage.jsx";
 import './SettingsPage.css'
 import Button from "../../Components/Button/Button.jsx";
 import {useState} from "react";
-import {useToast} from "../../Components/ToastProvider/ToastContext.jsx";
 
 function SettingsPage({ settings, setSettings, showToast }) {
     if (!settings) {
@@ -36,7 +35,7 @@ function SettingsPage({ settings, setSettings, showToast }) {
                             id="setting_api_key"
                             type={showKey ? "text" : "password"}
                             pattern="^xai-\S*$"
-                            maxLength="50"
+                            maxLength="100"
                             minLength="8"
                             defaultValue={settings.api_key}
                             onChange={(event) => {
