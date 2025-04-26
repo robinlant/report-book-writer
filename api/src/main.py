@@ -1,9 +1,17 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from api.src.api import WriteReportRequestDto, WriteReportResponseDto
 from api.src.infrastructure import GrokAiWriter, ReportGenerationError
 
 app = FastAPI()
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 @app.post("/api/write")
 async def write_report(write_request_dto: WriteReportRequestDto) -> WriteReportResponseDto:
     try:
