@@ -46,3 +46,21 @@ jobs:
       - name: Push to Dockerhub
         run: docker push ${{ env.IMAGE_NAME }}
 
+  build-push-frontend-image:
+    needs: run-docker-unittests
+    if: ${{ github.ref_name == 'deployment' }}
+    runs-on: ubuntu-20.04
+    env:
+      IMAGE_NAME: ${{ github.repository }}-frontend:latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Login to dockerhub
+        run: docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_PASSWORD }}
+      - name: Build docker image
+        run: docker build -t ${{ env.IMAGE_NAME }} -f frontend/Dockerfiles/Dockerfile .
+      - name: Push to Dockerhub
+        run: docker push ${{ env.IMAGE_NAME }}
+
