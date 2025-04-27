@@ -49,7 +49,7 @@ jobs:
   build-push-frontend-image:
     needs: run-docker-unittests
     if: ${{ github.ref_name == 'deployment' }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       IMAGE_NAME: ${{ github.repository }}-frontend:latest
     steps:
