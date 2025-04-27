@@ -2,11 +2,13 @@ FROM python:3.12
 
 WORKDIR /api
 
-COPY api/requirements* .
+COPY api/requirements.txt .
 
-RUN python -m pip install -r requirements-dev.txt
+RUN python -m pip install -r requirements.txt
 
 COPY api .
+
+EXPOSE 8000
 
 RUN useradd -m container
 
@@ -16,4 +18,4 @@ USER container
 
 WORKDIR /api
 
-CMD ["pytest", "-vv"]
+CMD ["fastapi", "run", "src/main.py"]
