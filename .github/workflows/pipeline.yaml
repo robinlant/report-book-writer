@@ -1,5 +1,5 @@
 name: Main pipeline
-run-name: Running tests by @${{ github.actor }}
+run-name: Running CI-CD @${{ github.actor }}
 
 
 on:

@@ -10,4 +10,6 @@ RUN npm run build
 
 EXPOSE 3000
 
-ENTRYPOINT ["npx", "serve", "dist"]
+RUN chmod u+x entrypoint.sh
+
+ENTRYPOINT ["./entrypoint.sh"]

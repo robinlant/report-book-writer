@@ -1,0 +1,24 @@
+name: report-book-writer
+
+services:
+  api-server:
+    image: robinlant/report-book-writer-api:latest
+    ports:
+      - "8000:8000"
+    networks:
+      back-tier:
+
+  frontend-server:
+    image: robinlant/report-book-writer-frontend:latest
+    ports:
+      - "3000:3000"
+    environment:
+      API_URL: "http://localhost:8000"
+      WEBSITE_PASSWORD: "1234"
+
+    networks:
+      back-tier:
+
+networks:
+  front-tier:
+  back-tier:

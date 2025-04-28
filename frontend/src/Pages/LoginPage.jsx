@@ -6,7 +6,7 @@ function LoginPage({ setAuth }) {
     let passwordValue = "";
 
     function checkPassword() {
-        if (import.meta.env.VITE_PASSWORD && passwordValue === import.meta.env.VITE_PASSWORD){
+        if (window.ENV["PASSWORD"] && passwordValue === window.ENV["PASSWORD"]){
             setAuth(true)
             localStorage.setItem("authenticated", "true")
         } else {

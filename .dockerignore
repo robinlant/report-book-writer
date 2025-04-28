@@ -2,7 +2,6 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,windows,linux,visualstudio,visualstudiocode,intellij+all,vim,python,venv,react
 
 # Vite
-**/env.js
 **/.vite
 
 ### Intellij+all ###

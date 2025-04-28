@@ -20,7 +20,7 @@ function get_is_authenticated() {
 }
 
 function initialize_envs() {
-    const apiUrl = import.meta.env.VITE_BACKEND_URL;
+    const apiUrl = window.ENV["API_URL"];
     if (!apiUrl) {
         throw new Error("REACT_APP_API_URL is not defined in the environment variables.");
     }

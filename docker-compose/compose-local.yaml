@@ -1,0 +1,28 @@
+name: report-book-writer
+
+services:
+  api-server:
+    build:
+      context: ..
+      dockerfile: api/Dockerfiles/Dockerfile
+    ports:
+      - "8000:8000"
+    networks:
+      back-tier:
+
+  frontend-server:
+    build:
+      context: ..
+      dockerfile: frontend/Dockerfiles/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      API_URL: "http://localhost:8000"
+      WEBSITE_PASSWORD: "1234"
+
+    networks:
+      back-tier:
+
+networks:
+  front-tier:
+  back-tier:
