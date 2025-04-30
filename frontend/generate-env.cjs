@@ -7,4 +7,5 @@ const env = {
 
 const content = `window.ENV = ${JSON.stringify(env, null, 2)};\n`;
 
+fs.writeFileSync('public/env.js', content);
 fs.writeFileSync('dist/env.js', content);
