@@ -15,4 +15,4 @@ const env = {
 
 const content = `window.ENV = ${JSON.stringify(env, null, 2)};\n`;
 
-fs.writeFileSync(outputPath, content);s
+fs.writeFileSync(outputPath, content);
