@@ -1,4 +1,4 @@
-const fs = require('fs');
+const fs = require('fs')
 const path = require('path');
 
 const distDir = path.join(__dirname, 'dist');
@@ -15,4 +15,4 @@ const env = {
 
 const content = `window.ENV = ${JSON.stringify(env, null, 2)};\n`;
 
-fs.writeFileSync(outputPath, content);
+fs.writeFileSync(outputPath, content);s
